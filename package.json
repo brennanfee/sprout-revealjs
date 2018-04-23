@@ -1,0 +1,54 @@
+{
+    "name": "sprout-revealjs",
+    "version": "0.0.1",
+    "description": "sprout-revealjs.",
+    "repository": "github:brennanfee/sprout-revealjs",
+    "homepage": "https://github.com/brennanfee/sprout-revealjs#readme",
+    "bugs": "https://github.com/brennanfee/sprout-revealjs/issues",
+    "author": "Brennan Fee <github@todaytechsoft.biz> (https://github.com/brennanfee)",
+    "keywords": [
+        "sprout-template"
+    ],
+    "devDependencies": {
+        "eslint": "^4.19.1",
+        "eslint-config-prettier": "^2.9.0",
+        "eslint-plugin-prettier": "^2.6.0",
+        "jest": "^22.4.3",
+        "prettier": "^1.12.1",
+        "shelljs": "^0.8.1",
+        "sprout": "^1.2.1"
+    },
+    "dependencies": {
+        "gh-got": "^7.0.0",
+        "underscore.string": "^3.3.4"
+    },
+    "main": "init.js",
+    "private": true,
+    "license": "Apache-2.0",
+    "eslintConfig": {
+        "env": {
+            "node": true,
+            "es6": true
+        },
+        "extends": [
+            "plugin:prettier/recommended"
+        ]
+    },
+    "prettier": {
+        "printWidth": 100,
+        "tabWidth": 4,
+        "useTabs": false,
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "bracketSpacing": true,
+        "jsxBracketSameLine": false,
+        "arrowParens": "avoid",
+        "proseWrap": "always",
+        "requirePragma": false,
+        "insertPragma": false,
+        "semi": false
+    },
+    "scripts": {
+        "test": "jest --coverage"
+    }
+}
