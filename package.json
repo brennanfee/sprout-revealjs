@@ -1,7 +1,7 @@
 {
     "name": "sprout-revealjs",
     "version": "0.0.1",
-    "description": "sprout-revealjs.",
+    "description": "Template to create and manage RevealJs presentations.",
     "repository": "github:brennanfee/sprout-revealjs",
     "homepage": "https://github.com/brennanfee/sprout-revealjs#readme",
     "bugs": "https://github.com/brennanfee/sprout-revealjs/issues",
@@ -13,6 +13,7 @@
         "eslint": "^4.19.1",
         "eslint-config-prettier": "^2.9.0",
         "eslint-plugin-prettier": "^2.6.0",
+        "htmlhint": "^0.9.13",
         "jest": "^22.4.3",
         "prettier": "^1.12.1",
         "shelljs": "^0.8.1",

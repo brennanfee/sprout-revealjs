@@ -1,10 +1,12 @@
 # sprout-revealjs
 
-sprout-revealjs.
+Template to create and manage RevealJs presentations.
 
 ## Overview
 
-TBD
+Template to generate structured RevealJs presentations with an index page for displaying multiple
+presentations. This version focuses on using standard RevealJs with HTML as the mechanism of
+expressing slides. For a more Markdown focused version use sprout-revealmd.
 
 ## GitHub use
 
