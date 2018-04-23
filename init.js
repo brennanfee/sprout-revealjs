@@ -47,6 +47,14 @@ exports.before = function(utils) {
         })
 }
 
+function _appendPeriodIfNeeded(str) {
+    if (str && !str.endsWith('.')) {
+        return str + '.'
+    } else {
+        return str
+    }
+}
+
 exports.configure = [
     {
         name: 'projectName',
@@ -66,12 +74,32 @@ exports.configure = [
     {
         name: 'projectDescription',
         message: 'Project description:',
+        filter: _appendPeriodIfNeeded,
     },
     {
-        type: 'confirm',
-        name: 'isNpmPkg',
-        message: 'Is this project an NPM package?',
-        default: false,
+        name: 'presentationName',
+        message: 'Your presentation name (folder name for first presentation):',
+        filter: str.slugify,
+        validate(str) {
+            return str.length > 0
+        },
+    },
+    {
+        name: 'presentationTitle',
+        message: 'Your presentation title:',
+        validate(str) {
+            return str.length > 0
+        },
+    },
+    {
+        name: 'presentationDescription',
+        message: 'Presentation description:',
+        filter: _appendPeriodIfNeeded,
+    },
+    {
+        name: 'revealTheme',
+        message: 'Reveal theme:',
+        default: 'blood',
     },
     {
         name: 'authorName',
@@ -107,9 +135,7 @@ exports.configure = [
 ]
 
 exports.beforeRender = function(utils, config) {
-    if (config.projectDescription && !config.projectDescription.endsWith('.')) {
-        config.projectDescription += '.'
-    } else {
+    if (!config.projectDescription) {
         config.projectDescription = `${config.projectName}.`
     }
 
@@ -157,6 +183,9 @@ exports.after = function(utils, config) {
     return utils.target
         .rename('package.json.ejs', 'package.json')
         .then(() => {
+            return _writePresentationFiles(utils, config)
+        })
+        .then(() => {
             return _writeLicenseFile(utils, config)
         })
         .then(() => {
@@ -164,9 +193,35 @@ exports.after = function(utils, config) {
         })
 }
 
+function _writePresnetationFiles(utils, config) {
+    return utils.target
+        .write(
+            'presentation-template/template.html',
+            `presentations/${config.presentationName}/index.html`
+        )
+        .then(() => {
+            return utils.target.write(
+                'presentation-template/readme.md',
+                `presentations/${config.presentationName}/readme.md`
+            )
+        })
+        .then(() => {
+            return utils.copy(
+                'presentation-template/custom-js.js',
+                `presentations/${config.presentationName}/custom-js.js`
+            )
+        })
+        .then(() => {
+            return utils.copy(
+                'presentation-template/styles.css',
+                `presentations/${config.presentationName}/styles.css`
+            )
+        })
+}
+
 function _writeLicenseFile(utils, config) {
     return utils.src.read(`licenses/${config.license}.txt`).then(content => {
-        utils.target.write('LICENSE', content, config)
+        return utils.target.write('license', content, config)
     })
 }
 

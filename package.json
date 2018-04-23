@@ -16,7 +16,9 @@
         "jest": "^22.4.3",
         "prettier": "^1.12.1",
         "shelljs": "^0.8.1",
-        "sprout": "^1.2.1"
+        "sprout": "^1.2.1",
+        "stylelint": "^9.2.0",
+        "stylelint-config-standard": "^18.2.0"
     },
     "dependencies": {
         "gh-got": "^7.0.0",
@@ -33,6 +35,12 @@
         "extends": [
             "plugin:prettier/recommended"
         ]
+    },
+    "stylelint": {
+        "extends": "stylelint-config-standard",
+        "rules": {
+            "indentation": 4
+        }
     },
     "prettier": {
         "printWidth": 100,

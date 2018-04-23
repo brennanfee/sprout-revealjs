@@ -6,14 +6,19 @@
     "homepage": "<%- repositoryHomepageUrl %>",
     "bugs": "<%- repositoryBugsUrl %>",
     "author": "<%- author %>",
-    "keywords": [],
-    "devDependencies": {},
+    "keywords": [
+        "revealJs"
+    ],
+    "devDependencies": {
+        "cross-os": "^1.2.2"
+    },
     "dependencies": {},
 <% if (license === 'UNLICENSED' || !isNpmPkg ) { %>
     "private": true,
 <% } %>
     "license": "<%- license %>",
     "scripts": {
+        "add": "",
         "test": "echo 'Error: no tests specified' && exit 1"
     }
 }
