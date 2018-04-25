@@ -4,7 +4,7 @@ Welcome to the "<%= projectName %>". <% if (projectDescription) { %>
 
 ## Description
 
-    <%= projectDescription %><% } %>
+    <%= projectDescription %>.<% } %>
 
 ## Overview Of This Repository
 

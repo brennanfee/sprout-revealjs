@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Presentation Index - <%= projectName %></title>
+        <title>Presentation Index - <%= projectTitle %></title>
 
         <meta name="description" content="<%= projectDescription %>">
         <meta name="author" content="<%= authorName %>">
@@ -23,7 +23,7 @@
     <body>
         <div class="reveal">
 
-            <h2>Presentation Index - <%= projectName %></h2>
+            <h2>Presentation Index - <%= projectTitle %></h2>
 
             <h3>Select a presentation below:</h3>
             <ul id="presentation-list">
@@ -32,7 +32,7 @@
                         <%= presentationTitle %>
                     </a>
                     <p>
-                        <%= description %>
+                        <%= presentationDescription %>
                     </p>
                 </li>
             </ul>

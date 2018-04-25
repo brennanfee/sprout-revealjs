@@ -2,6 +2,7 @@
 const str = require('underscore.string')
 const path = require('path')
 const ghGot = require('gh-got')
+const shell = require('shelljs')
 
 const licenses = [
     { name: 'Apache License 2.0', value: 'Apache-2.0' },
@@ -22,6 +23,7 @@ const licenses = [
 const globalConfig = {}
 
 exports.before = function(utils) {
+    console.log('sprout-revealjs: Starting...')
     globalConfig.targetPath = utils.target.path
 
     return ghGot('user')
@@ -47,9 +49,9 @@ exports.before = function(utils) {
         })
 }
 
-function _appendPeriodIfNeeded(str) {
-    if (str && !str.endsWith('.')) {
-        return str + '.'
+function _stripPeriodIfNeeded(str) {
+    if (str && str.endsWith('.')) {
+        return str.substr(0, str.length - 1)
     } else {
         return str
     }
@@ -72,9 +74,14 @@ exports.configure = [
         },
     },
     {
+        name: 'projectTitle',
+        message: 'Project title:',
+        filter: _stripPeriodIfNeeded,
+    },
+    {
         name: 'projectDescription',
         message: 'Project description:',
-        filter: _appendPeriodIfNeeded,
+        filter: _stripPeriodIfNeeded,
     },
     {
         name: 'presentationName',
@@ -94,7 +101,7 @@ exports.configure = [
     {
         name: 'presentationDescription',
         message: 'Presentation description:',
-        filter: _appendPeriodIfNeeded,
+        filter: _stripPeriodIfNeeded,
     },
     {
         name: 'revealTheme',
@@ -135,8 +142,14 @@ exports.configure = [
 ]
 
 exports.beforeRender = function(utils, config) {
+    // Some globals...
+    config.revealVersion = '3.6.0'
+
     if (!config.projectDescription) {
-        config.projectDescription = `${config.projectName}.`
+        config.projectDescription = config.projectName
+    }
+    if (!config.presentationDescription) {
+        config.presentationDescription = config.presentationName
     }
 
     config.authorUrl = ''
@@ -193,7 +206,9 @@ exports.after = function(utils, config) {
         })
 }
 
-function _writePresnetationFiles(utils, config) {
+function _writePresentationFiles(utils, config) {
+    shell.mkdir('-p', `${utils.target.path}/presentations/${config.presentationName}`)
+
     return utils.target
         .write(
             'presentation-template/template.html',
