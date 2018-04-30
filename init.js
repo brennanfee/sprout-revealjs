@@ -199,6 +199,9 @@ exports.after = function(utils, config) {
             return _writePresentationFiles(utils, config)
         })
         .then(() => {
+            return _writeTemplateFiles(utils, config)
+        })
+        .then(() => {
             return _writeLicenseFile(utils, config)
         })
         .then(() => {
@@ -209,28 +212,59 @@ exports.after = function(utils, config) {
 function _writePresentationFiles(utils, config) {
     shell.mkdir('-p', `${utils.target.path}/presentations/${config.presentationName}`)
 
-    return utils.target
-        .write(
-            'presentation-template/template.html',
-            `presentations/${config.presentationName}/index.html`
-        )
-        .then(() => {
+    return utils.src
+        .read('presentation-template/template.html')
+        .then(content => {
             return utils.target.write(
-                'presentation-template/readme.md',
-                `presentations/${config.presentationName}/readme.md`
+                `presentations/${config.presentationName}/index.html`,
+                content,
+                config
             )
         })
         .then(() => {
-            return utils.copy(
-                'presentation-template/custom-js.js',
-                `presentations/${config.presentationName}/custom-js.js`
+            return utils.src.read('presentation-template/readme.md')
+        })
+        .then(content => {
+            return utils.target.write(
+                `presentations/${config.presentationName}/readme.md`,
+                content,
+                config
             )
         })
         .then(() => {
+            return utils.src.read('presentation-template/custom-js.js')
+        })
+        .then(content => {
+            return utils.target.write(
+                `presentations/${config.presentationName}/custom-js.js`,
+                content,
+                config
+            )
+        })
+        .then(() => {
+            return utils.src.read('presentation-template/styles.css')
+        })
+        .then(content => {
             return utils.copy(
                 'presentation-template/styles.css',
                 `presentations/${config.presentationName}/styles.css`
             )
+        })
+}
+
+function _writeTemplateFiles(utils, config) {
+    shell.mkdir('-p', `${utils.target.path}/template/`)
+
+    return utils
+        .copy('presentation-template/template.html', `template/index.html`)
+        .then(() => {
+            return utils.copy('presentation-template/readme.md', `template/readme.md`)
+        })
+        .then(() => {
+            return utils.copy('presentation-template/custom-js.js', `template/custom-js.js`)
+        })
+        .then(() => {
+            return utils.copy('presentation-template/styles.css', `template/styles.css`)
         })
 }
 

@@ -1,11 +1,11 @@
 # Presentation
 
-Welcome to the "<%= title %>" presentation. <% if (description) { %>
+Welcome to the "<%= presentationTitle %>" presentation. <%if (presentationDescription) { %>
 
 ## Description
 
-    <%= description %>.<% } %> <% if (license) { %>
+<%= presentationDescription %>.<% } %><%if (license) { %>
 
 ## License
 
-<%- license %> © <%- copyrightYear %> <%- authorMarkdownLink %>
+<%- license %> © <%- copyrightYear %> <%- authorMarkdownLink %><% } %>
