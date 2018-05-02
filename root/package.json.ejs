@@ -10,13 +10,16 @@
         "revealJs"
     ],
     "devDependencies": {
-        "cross-os": "^1.2.2"
+        "cross-os": "^1.2.2",
+        "sprout": "^1.2.1"
     },
     "dependencies": {},
     "private": true,
     "license": "<%- license %>",
     "scripts": {
-        "add": "",
+        "add": "sprout run revealjs add",
+        "delete": "sprout run revealjs delete",
+        "update": "sprout run revealjs update",
         "test": "echo 'Error: no tests specified' && exit 1"
     }
 }
