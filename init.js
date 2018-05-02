@@ -285,6 +285,7 @@ function _writeAnswersFile(utils, config) {
 }
 
 function _executeCommands(utils, config) {
+    console.log('Running npm install')
     // First run npm install
     return utils.target
         .exec('npm install')
@@ -308,4 +309,7 @@ function _executeCommands(utils, config) {
                 return utils.target.exec('git commit -m "Initial commit"')
             }
         }, () => '')
+        .then(() => {
+            console.log('Finished.')
+        })
 }
