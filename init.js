@@ -310,6 +310,6 @@ function _executeCommands(utils, config) {
             }
         }, () => '')
         .then(() => {
-            console.log('Finished.')
+            console.log('Finished')
         })
 }
