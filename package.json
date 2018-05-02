@@ -22,8 +22,9 @@
     },
     "dependencies": {
         "gh-got": "^7.0.0",
-        "underscore.string": "^3.3.4",
-        "shelljs": "^0.8.1"
+        "inquirer": "^5.2.0",
+        "shelljs": "^0.8.1",
+        "underscore.string": "^3.3.4"
     },
     "main": "init.js",
     "private": true,

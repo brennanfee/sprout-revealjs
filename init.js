@@ -1,6 +1,6 @@
 'use strict'
-const str = require('underscore.string')
 const path = require('path')
+const str = require('underscore.string')
 const ghGot = require('gh-got')
 const shell = require('shelljs')
 
@@ -205,6 +205,9 @@ exports.after = function(utils, config) {
             return _writeLicenseFile(utils, config)
         })
         .then(() => {
+            return _writeAnswersFile(utils, config)
+        })
+        .then(() => {
             return _executeCommands(utils, config)
         })
 }
@@ -213,7 +216,7 @@ function _writePresentationFiles(utils, config) {
     shell.mkdir('-p', `${utils.target.path}/presentations/${config.presentationName}`)
 
     return utils.src
-        .read('presentation-template/template.html')
+        .read('presentation-template/index.html')
         .then(content => {
             return utils.target.write(
                 `presentations/${config.presentationName}/index.html`,
@@ -242,9 +245,6 @@ function _writePresentationFiles(utils, config) {
             )
         })
         .then(() => {
-            return utils.src.read('presentation-template/styles.css')
-        })
-        .then(content => {
             return utils.copy(
                 'presentation-template/styles.css',
                 `presentations/${config.presentationName}/styles.css`
@@ -256,7 +256,7 @@ function _writeTemplateFiles(utils, config) {
     shell.mkdir('-p', `${utils.target.path}/template/`)
 
     return utils
-        .copy('presentation-template/template.html', `template/index.html`)
+        .copy('presentation-template/index.html', `template/index.html`)
         .then(() => {
             return utils.copy('presentation-template/readme.md', `template/readme.md`)
         })
@@ -272,6 +272,16 @@ function _writeLicenseFile(utils, config) {
     return utils.src.read(`licenses/${config.license}.txt`).then(content => {
         return utils.target.write('license', content, config)
     })
+}
+
+function _writeAnswersFile(utils, config) {
+    const answers = Object.assign({}, config)
+
+    delete answers.presentationName
+    delete answers.presentationTitle
+    delete answers.presentationDescription
+
+    return utils.target.write('.revealAnswers', JSON.stringify(answers), null)
 }
 
 function _executeCommands(utils, config) {
