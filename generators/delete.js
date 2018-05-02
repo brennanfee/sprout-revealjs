@@ -2,6 +2,7 @@
 const inquirer = require('inquirer')
 const str = require('underscore.string')
 const shell = require('shelljs')
+const _doUpdate = require('./update-module.js')
 
 module.exports = utils => {
     const prompts = [
@@ -17,5 +18,7 @@ module.exports = utils => {
 
     return inquirer.prompt(prompts).then(answers => {
         shell.rm('-rf', `${utils.target.path}/presentations/${answers.presentationName}`)
+
+        return _doUpdate(utils)
     })
 }

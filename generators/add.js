@@ -2,6 +2,7 @@
 const inquirer = require('inquirer')
 const str = require('underscore.string')
 const shell = require('shelljs')
+const _doUpdate = require('./update-module.js')
 
 function _stripPeriodIfNeeded(str) {
     if (str && str.endsWith('.')) {
@@ -83,5 +84,8 @@ module.exports = utils => {
                 `presentations/${config.presentationName}/styles.css`,
                 content
             )
+        })
+        .then(() => {
+            return _doUpdate(utils)
         })
 }
