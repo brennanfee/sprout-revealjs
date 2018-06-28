@@ -41,7 +41,7 @@ Windows.
 ### Speaker Notes
 
 Once your presentation is hosted (or running locally) you can use the "speaker notes" feature of
-RevealJs. Simply press the `S` key once you open your presentation and a second browser window will
+Reveal.js. Simply press the `S` key once you open your presentation and a second browser window will
 open to display the speaker notes.
 
 ## Special Thanks

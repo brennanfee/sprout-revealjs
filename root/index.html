@@ -1,54 +1,55 @@
 <!doctype html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Presentation Index - <%= projectTitle %></title>
+    <title>Presentation Index - <%= projectTitle %></title>
 
-        <meta name="description" content="<%= projectDescription %>">
-        <meta name="author" content="<%= authorName %>">
-        <meta name="license" content="<%= license %>">
+    <meta name="description" content="<%= projectDescription %>">
+    <meta name="author" content="<%= authorName %>">
+    <meta name="license" content="<%= license %>">
 
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/<%= revealVersion %>/css/reveal.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/<%= revealVersion %>/css/theme/<%= revealTheme %>.min.css" id="theme">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/<%= revealVersion %>/css/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/<%= revealVersion %>/css/theme/<%= revealTheme %>.min.css" id="theme">
 
-        <link rel="stylesheet" href="styles.css">
-    </head>
+    <link rel="stylesheet" href="styles.css">
+  </head>
 
-    <body>
-        <div class="reveal">
+  <body>
+    <div class="reveal">
 
-            <h2>Presentation Index - <%= projectTitle %></h2>
+      <h2>Presentation Index - <%= projectTitle %></h2>
 
-            <h3>Select a presentation below:</h3>
-            <ul id="presentation-list">
-                <li>
-                    <a href="/presentations/<%= presentationName %>/#/">
-                        <%= presentationTitle %>
-                    </a>
-                    <p>
-                        <%= presentationDescription %>
-                    </p>
-                </li>
-            </ul>
+      <h3>Select a presentation below:</h3>
+      <ul id="presentation-list">
+        <li>
+          <a href="/presentations/<%= presentationName %>/#/">
+            <%= presentationTitle %>
+          </a>
+          <p>
+            <%= presentationDescription %>
+          </p>
+        </li>
+      </ul>
 
-            <footer>
-                Link: <a id="page-url" href="#">URL</a>
-            </footer>
+      <footer>
+        Link: <a id="page-url" href="#">URL</a>
+      </footer>
 
-        </div>
-    </body>
+    </div>
 
     <script>
-        let elm = document.getElementById("page-url");
-        let url = document.location.origin + document.location.pathname;
-        elm.href = url;
-        elm.innerText = url;
+      let elm = document.getElementById("page-url");
+      let url = document.location.origin + document.location.pathname;
+      elm.href = url;
+      elm.innerText = url;
     </script>
+
+  </body>
 
 </html>

@@ -5,20 +5,20 @@ const shell = require('shelljs')
 const _doUpdate = require('./update-module.js')
 
 module.exports = utils => {
-    const prompts = [
-        {
-            name: 'presentationName',
-            message: 'Presentation to remove (folder name for the presentation):',
-            filter: str.slugify,
-            validate(str) {
-                return str.length > 0
-            },
-        },
-    ]
+  const prompts = [
+    {
+      name: 'presentationName',
+      message: 'Presentation to remove (folder name for the presentation):',
+      filter: str.slugify,
+      validate(str) {
+        return str.length > 0
+      },
+    },
+  ]
 
-    return inquirer.prompt(prompts).then(answers => {
-        shell.rm('-rf', `${utils.target.path}/presentations/${answers.presentationName}`)
+  return inquirer.prompt(prompts).then(answers => {
+    shell.rm('-rf', `${utils.target.path}/presentations/${answers.presentationName}`)
 
-        return _doUpdate(utils)
-    })
+    return _doUpdate(utils)
+  })
 }

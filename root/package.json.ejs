@@ -1,61 +1,51 @@
 {
-    "name": "<%- projectName %>",
-    "version": "0.0.1",
-    "description": "<%- projectDescription %>",
-    "repository": "<%- repository %>",
-    "homepage": "<%- repositoryHomepageUrl %>",
-    "bugs": "<%- repositoryBugsUrl %>",
-    "author": "<%- author %>",
-    "keywords": [
-        "revealJs"
-    ],
-    "devDependencies": {
-        "eslint": "^4.19.1",
-        "eslint-config-prettier": "^2.9.0",
-        "eslint-plugin-prettier": "^2.6.0",
-        "htmlhint": "^0.9.13",
-        "prettier": "^1.12.1",
-        "stylelint": "^9.2.0",
-        "stylelint-config-standard": "^18.2.0",
-        "cross-os": "^1.2.2",
-        "sprout": "^1.2.1"
+  "name": "<%- projectName %>",
+  "version": "0.0.1",
+  "description": "<%- projectDescription %>",
+  "repository": "<%- repository %>",
+  "homepage": "<%- repositoryHomepageUrl %>",
+  "bugs": "<%- repositoryBugsUrl %>",
+  "author": "<%- author %>",
+  "keywords": [
+    "revealJs"
+  ],
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "htmlhint": "^0.9.13",
+    "prettier": "^1.12.1",
+    "stylelint": "^9.2.0",
+    "stylelint-config-standard": "^18.2.0",
+    "cross-os": "^1.2.2",
+    "sprout": "^1.2.1"
+  },
+  "dependencies": {},
+  "private": true,
+  "license": "<%- license %>",
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "es6": true
     },
-    "dependencies": {},
-    "private": true,
-    "license": "<%- license %>",
-    "eslintConfig": {
-        "env": {
-            "node": true,
-            "es6": true
-        },
-        "extends": [
-            "plugin:prettier/recommended"
-        ]
-    },
-    "stylelint": {
-        "extends": "stylelint-config-standard",
-        "rules": {
-            "indentation": 4
-        }
-    },
-    "prettier": {
-        "printWidth": 100,
-        "tabWidth": 4,
-        "useTabs": false,
-        "singleQuote": true,
-        "trailingComma": "es5",
-        "bracketSpacing": true,
-        "jsxBracketSameLine": false,
-        "arrowParens": "avoid",
-        "proseWrap": "always",
-        "requirePragma": false,
-        "insertPragma": false,
-        "semi": false
-    },
-    "scripts": {
-        "add": "sprout run revealjs add",
-        "delete": "sprout run revealjs delete",
-        "update": "sprout run revealjs update",
-        "test": "echo 'Error: no tests specified' && exit 1"
-    }
+    "extends": ["plugin:prettier/recommended"]
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+  },
+  "prettier": {
+    "printWidth": 100,
+    "trailingComma": "es5",
+    "proseWrap": "always",
+    "semi": false,
+    "singleQuote": true,
+    "requirePragma": false,
+    "insertPragma": false
+  },
+  "scripts": {
+    "add": "sprout run revealjs add",
+    "delete": "sprout run revealjs delete",
+    "update": "sprout run revealjs update",
+    "test": "echo 'Error: no tests specified' && exit 1"
+  }
 }
