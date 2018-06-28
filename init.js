@@ -281,7 +281,7 @@ function _writeAnswersFile(utils, config) {
   delete answers.presentationTitle
   delete answers.presentationDescription
 
-  return utils.target.write('.revealAnswers', JSON.stringify(answers), null)
+  return utils.target.write('.revealAnswers', JSON.stringify(answers, null, 2), null)
 }
 
 function _executeCommands(utils, config) {
