@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -22,39 +22,39 @@
 
     <!-- Printing and PDF exports -->
     <script>
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match( /print-pdf/gi ) ? 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/<%= revealVersion %>/css/print/pdf.min.css' : 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/<%= revealVersion %>/css/print/paper.min.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/<%= revealVersion %>/css/print/pdf.min.css' : 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/<%= revealVersion %>/css/print/paper.min.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
 
     <link rel="stylesheet" href="styles.css">
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="reveal">
-        <div class="slides">
-            <section>
-                <h2><%= presentationTitle %></h2>
-            </section>
-            <section>
-                <h2>Q &amp; A</h2>
-            </section>
-        </div>
+      <div class="slides">
+        <section>
+          <h2><%= presentationTitle %></h2>
+        </section>
+        <section>
+          <h2>Q &amp; A</h2>
+        </section>
+      </div>
 
-        <footer>
-            <p>This presentation brought to you entirely using open source software. &#x263A;</p>
-            <p>Link: <a id="page-url" href="#">URL</a></p>
-        </footer>
+      <footer>
+        <p>This presentation brought to you entirely using open source software. &#x263A;</p>
+        <p>Link: <a id="page-url" href="#">URL</a></p>
+      </footer>
 
     </div>
 
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/<%= revealVersion %>/lib/js/head.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/<%= revealVersion %>/js/reveal.min.js"></script>
+    <script src="custom-js.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/<%= revealVersion %>/lib/js/head.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/<%= revealVersion %>/js/reveal.min.js"></script>
-<script src="custom-js.js"></script>
+  </body>
 
 </html>

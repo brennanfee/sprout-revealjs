@@ -6,23 +6,25 @@
   "homepage": "https://github.com/brennanfee/sprout-revealjs#readme",
   "bugs": "https://github.com/brennanfee/sprout-revealjs/issues",
   "author": "Brennan Fee <github@todaytechsoft.biz> (https://github.com/brennanfee)",
-  "keywords": ["sprout-template"],
+  "keywords": [
+    "sprout-template"
+  ],
   "devDependencies": {
-    "eslint": "^4.19.1",
+    "eslint": "^5.0.1",
     "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-prettier": "^2.6.1",
     "htmlhint": "^0.9.13",
-    "jest": "^22.4.3",
-    "prettier": "^1.12.1",
+    "jest": "^23.2.0",
+    "prettier": "^1.13.7",
     "sprout": "^1.2.1",
-    "stylelint": "^9.2.0",
+    "stylelint": "^9.3.0",
     "stylelint-config-standard": "^18.2.0"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "gh-got": "^7.0.0",
-    "inquirer": "^5.2.0",
-    "shelljs": "^0.8.1",
+    "inquirer": "^6.0.0",
+    "shelljs": "^0.8.2",
     "underscore.string": "^3.3.4"
   },
   "main": "init.js",
@@ -33,7 +35,9 @@
       "node": true,
       "es6": true
     },
-    "extends": ["plugin:prettier/recommended"]
+    "extends": [
+      "plugin:prettier/recommended"
+    ]
   },
   "stylelint": {
     "extends": "stylelint-config-standard"
