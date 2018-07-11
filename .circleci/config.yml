@@ -4,6 +4,8 @@ jobs:
   build:
     docker:
       - image: circleci/node:8.11.1
+    environment:
+      SPROUT_SKIP_COMMIT: true
     steps:
       - checkout
 
